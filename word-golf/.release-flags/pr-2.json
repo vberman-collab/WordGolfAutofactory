@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.2",
+  "flagKey": "enable-streak-counter",
+  "scope": "frontend",
+  "releasePlan": {
+    "randomizationUnit": "user",
+    "metricKeys": [],
+    "notes": "Flag creation failed with HTTP 403 (Access Denied) against project best-golfers-wordgolf. The LD_API_KEY secret does not have write permission on this project. The code wiring (FLAG_KEYS, FLAG_DEFAULTS, Flags type, App.tsx gate) is committed to the branch and is correct — it will evaluate safely to 'control' (streak hidden) until the flag exists and is turned on. Action required: grant the LD API key the 'Create flag' permission on project best-golfers-wordgolf, then re-run the AutoFactory pipeline for this PR."
+  },
+  "releaseIntent": {
+    "_instructions": "Human approver: edit freely. action: auto (release on deploy) | hold (do not release yet) | manual (a human runs the release). Structured fields execute; anything else goes in notes (an agent will structure it on the PR for your review). Blank fields = default auto-release on deploy. prerequisites: [{\"flagKey\": \"flag-xyz\", \"variation\": \"on\"}]. notBefore: YYYY-MM-DD. reference: ticket/doc URL.",
+    "action": "auto",
+    "notBefore": "",
+    "segments": [],
+    "prerequisites": [],
+    "releaseWith": [],
+    "reference": "",
+    "approvedBy": "",
+    "notes": ""
+  }
+}

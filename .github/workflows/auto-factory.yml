@@ -68,6 +68,8 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           ld_app_project_key: ${{ vars.LD_APP_PROJECT_KEY }}   # e.g. autofactory-demo
           ld_api_key: ${{ secrets.LD_API_KEY }}
+          ld_base_url: https://app.launchdarkly.com   # the action.yml default is still ld-stg; we're on prod now
+          sandbox_root: word-golf   # the Word Golf app lives in this subdirectory, not the repo root
           enable_flag_creation: "true"   # create real flags/metrics in the app project
           enable_code_changes: "true"    # commit wiring + tests to the PR branch
           pr_branch: ${{ github.event.pull_request.head.ref }}
