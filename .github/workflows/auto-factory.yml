@@ -46,7 +46,7 @@ jobs:
       - name: Check out the AutoFactory tool
         uses: actions/checkout@v4
         with:
-          repository: alawrenceld/launchdarkly-auto-factory
+          repository: jcox-ld/launchdarkly-auto-factory
           ref: main
           path: tool
 
