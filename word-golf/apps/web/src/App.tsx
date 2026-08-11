@@ -22,6 +22,7 @@ import {
 } from "@word-golf/engine";
 import { FLAG_KEYS, METRIC_EVENTS, useFlag, useTrack } from "@word-golf/ld";
 import { graph, practicePools, startPool, targetPool } from "./words.js";
+import { peekStreak, recordDailyCompletion } from "./streak.js";
 
 const PRACTICE_DIFFICULTY_LEVELS = PRACTICE_DIFFICULTIES;
 
@@ -103,6 +104,8 @@ export function App() {
   const moves = path.length - 1;
   const won = current === puzzle.target;
 
+  const [streak, setStreak] = useState(() => peekStreak());
+
   // Timing + once-only guards for metric events.
   const startTimeRef = useRef(Date.now());
   const lastMoveRef = useRef(Date.now());
@@ -121,7 +124,11 @@ export function App() {
     if (puzzle.par !== null && moves <= puzzle.par) {
       track(METRIC_EVENTS.madePar, { data: { moves, par: puzzle.par } });
     }
-  }, [won, moves, puzzle.par, track]);
+    // Streak only tracks the shared daily puzzle, not one-off practice rounds.
+    if (isDaily) {
+      setStreak(recordDailyCompletion(today));
+    }
+  }, [won, moves, puzzle.par, track, isDaily, today]);
 
   // Error: count an abandon if the player leaves mid-puzzle after moving.
   const wonRef = useRef(won);
@@ -334,6 +341,7 @@ export function App() {
               : today
           }
         />
+        {streak > 0 && <Stat label="Streak" value={`${streak}🔥`} />}
       </section>
 
       <ol className="track" aria-label="Move history">
