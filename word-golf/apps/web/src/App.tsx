@@ -157,7 +157,7 @@ export function App() {
     setPath(nextPath);
     setInput("");
     if (result.word === puzzle.target) {
-      setFeedback({ kind: "info", text: "Solved!" });
+      setFeedback({ kind: "info", text: "Hooray, solved!" });
     } else {
       setFeedback(null);
     }
