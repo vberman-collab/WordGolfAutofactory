@@ -307,7 +307,7 @@ export function App() {
   return (
     <main className="app">
       <header className="header">
-        <h1>Percy Pig's Word Game</h1>
+        <h1>Percy Pig's Jam Sandwich Creams Word Game</h1>
         <p className="tagline">
           Turn the starting word into the target word, one letter at a time.
           Every step must be a real word — anything else reverts to the last
@@ -499,7 +499,7 @@ function formatDailyShareText(dateUtc: string, moves: number, par: number): stri
   const delta = relativeToPar(moves, par);
   const score =
     delta === 0 ? "E" : delta > 0 ? `+${delta}` : String(delta);
-  return `Percy Pig's Word Game #${n} — solved in ${moves} (par ${par}) 🏌️ ${score}`;
+  return `Percy Pig's Jam Sandwich Creams Word Game #${n} — solved in ${moves} (par ${par}) 🏌️ ${score}`;
 }
 
 /**
